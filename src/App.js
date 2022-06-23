@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Form from './project/project2';
+
 
 function App() {
+
+const [employees, setEmployees] = useState([]);
+
+const addEmployeeHandler = (employee) => {
+  setEmployees([...employees, employee]);
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Form  addEmployeeHandler={addEmployeeHandler} employees={employees}/>
     </div>
   );
 }
